@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration Form</title>
+</head>
+
+<body>
+
+    <h1>Registration Form</h1>
+    <div class="container">
+
+        <form action="#">
+            <div class="form-section">
+                <div>
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" required>
+                </div>
+                <div>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+                <div>
+                    <label for="month">Month of Interest</label>
+                    <input type="month" id="month" name="month">
+                </div>
+                <div>
+                    <label for="courses">Number of Courses</label>
+                    <input type="number" id="courses" name="courses" min="1" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div>
+                    <label for="skill">Skill Level</label>
+                    <input type="range" id="skill" name="skill" min="1" max="10">
+                </div>
+                <div>
+                    <label for="search">Search Preference</label>
+                    <input type="search" id="search" name="search">
+                </div>
+
+                <div>
+                    <label>Gender</label>
+                    <div class="radio">
+                        <input type="radio" name="gender" value="Male" required> Male
+                        <input type="radio" name="gender" value="Female" required> Female
+                        <input type="radio" name="gender" value="Other" required> Other
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div>
+                    <label>Preferred Learning Styles</label>
+                    <div class="checkbox">
+                        <input type="checkbox" name="learning" value="Visual"> Visual
+                        <input type="checkbox" name="learning" value="Auditory"> Auditory
+                        <input type="checkbox" name="learning" value="Kinesthetic"> Kinesthetic
+                    </div>
+                </div>
+                <div>
+                    <label for="country">Country</label>
+                    <select id="country" required>
+                        <option value="">Select Country</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Germany">Germany</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div>
+                    <label for="comments">Additional Comment</label>
+                    <textarea id="comments" name="comments" rows="10" cols="60"></textarea>
+                </div>
+
+                <div>
+                    <label for="color">Favorite Color</label>
+                    <input type="color" id="color" name="color">
+                </div>
+                <div>
+                    <label for="progress">Completion Progress</label>
+                    <progress id="progress" value="5" max="100"></progress>
+                </div>
+            </div>
+
+            <p>Phone Contact: <a href="#">+92-3318200475</a></p>
+            <p>Email Contact: <a href="#">asharnaveed2002@gmail.com</a></p>
+
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+</body>
+
+</html>
