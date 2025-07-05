@@ -1,0 +1,173 @@
+body {
+
+    margin: 20px;
+    background: #f7f9fc;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#container {
+    position: relative;
+    width: 100%;
+}
+
+#toggleModeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: cadetblue;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#toggleModeButton:hover {
+    background: darkcyan;
+}
+
+#productList {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.productCard {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+.productCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.productCard img {
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.productCard p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+h1,
+h2,
+h3 {
+    color: rgb(38, 30, 85);
+}
+
+.btn {
+    background: cadetblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btn:hover {
+    background: darkcyan;
+}
+
+.removeItem {
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#couponInput {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#applyCouponButton {
+    background: #19b55a;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+#applyCouponButton:hover {
+    background: #43d47f;
+}
+
+ul#cartItems {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+}
+
+ul#cartItems li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(232, 232, 232);
+    align-items: center;
+}
+
+.shoppingCart {
+    margin-top: 100px !important;
+}
+
+.shoppingCart,
+.consoleLog {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.consoleLog #logOutput {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #1e1e1e;
+    color: #00ff90;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+.totalAmount {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+}
