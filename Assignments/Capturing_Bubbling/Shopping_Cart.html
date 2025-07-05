@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpha Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>Alpha Cart</h1>
+        <button id="toggleModeButton">Capturing Mode</button>
+    </div>
+
+    <div id="productList">
+        <div class="productCard product" data-price="55000">
+            <img src="mobile.avif" alt="Mobile">
+            <p>Mobile - Rs 55000</p>
+            <button class="btn addToCartButton">Add to Cart</button>
+        </div>
+        <div class="productCard product" data-price="70000">
+            <img src="laptop.jpg" alt="Laptop">
+            <p>Laptop - Rs 70000</p>
+            <button class="btn addToCartButton">Add to Cart</button>
+        </div>
+        <div class="productCard product" data-price="1999">
+            <img src="headphone.jpg" alt="Headphones">
+            <p>Headphones - Rs 1999</p>
+            <button class="btn addToCartButton">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="shoppingCart">
+        <h2>Shopping Cart</h2>
+        <ul id="cartItems"></ul>
+        <div style="margin-top: 20px;">
+            <input type="text" id="couponInput" placeholder="Enter Coupon">
+            <button id="applyCouponButton">Apply Coupon</button>
+        </div>
+        <p class="totalAmount">Total: Rs <span id="totalAmount">0</span></p>
+    </div>
+
+    <div class="consoleLog">
+        <h3>Console Log</h3>
+        <div id="logOutput"></div>
+    </div>
+
+    <script>
+        let shoppingCart = [];
+        let isCouponApplied = false;
+        let isCapturingMode = false;
+
+        function logToConsole(message) {
+            const currentTime = new Date().toLocaleTimeString();
+            const logArea = document.getElementById("logOutput");
+            logArea.textContent += `[${currentTime}] ${message}\n`;
+            logArea.scrollTop = logArea.scrollHeight;
+        }
+
+        function updateTotalAmount() {
+            let totalPrice = shoppingCart.reduce((sum, product) => sum + product.price * product.quantity, 0);
+            let discount = isCouponApplied ? totalPrice * 0.10 : 0;
+            let finalTotal = totalPrice - discount;
+
+            document.getElementById("totalAmount").textContent = `${finalTotal.toFixed(2)}${discount ? ` (Discount: Rs ${discount.toFixed(2)})` : ''}`;
+
+            let path = ["#totalAmount", ".totalAmount", ".shoppingCart", "body"];
+            if (isCapturingMode) path.reverse();
+
+            logToConsole(`[${isCapturingMode ? 'Capturing' : 'Bubbling'}] Total Updated Path:\n${path.join(" -> ")}`);
+        }
+
+        function renderCartItems() {
+            const cartList = document.getElementById("cartItems");
+            cartList.innerHTML = "";
+
+            shoppingCart.forEach((product, idx) => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `${product.name} x${product.quantity} - Rs ${(product.price * product.quantity).toFixed(2)} <span class="removeItem" data-index="${idx}">✕</span>`;
+                cartList.appendChild(listItem);
+            });
+        }
+
+        function addProductToCart(name, price) {
+            const existingProduct = shoppingCart.find(product => product.name === name);
+
+            if (existingProduct) {
+                existingProduct.quantity++;
+                logToConsole(`Updated quantity: ${name} is now ${existingProduct.quantity}`);
+            } else {
+                shoppingCart.push({ name, price, quantity: 1 });
+                logToConsole(`Added to cart: ${name} - Rs ${price}`);
+            }
+
+            renderCartItems();
+            updateTotalAmount();
+        }
+
+        function handleProductClick(event) {
+            const path = [];
+            let currentElement = event.target;
+
+            while (currentElement && currentElement !== document.getElementById("productList").parentNode) {
+                if (currentElement.className) path.push(currentElement.className);
+                currentElement = currentElement.parentElement;
+            }
+
+            if (isCapturingMode) path.reverse();
+            logToConsole(`[${isCapturingMode ? 'Capturing' : 'Bubbling'}] Clicked Path:\n${path.join(" -> ")}`);
+
+            if (event.target.classList.contains("addToCartButton")) {
+                const productCard = event.target.closest(".product");
+                const name = productCard.querySelector("p").textContent.split("-")[0].trim();
+                const price = parseFloat(productCard.getAttribute("data-price"));
+                addProductToCart(name, price);
+            }
+        }
+
+        function initializeProductClickListener() {
+            const productList = document.getElementById("productList");
+            productList.addEventListener("click", handleProductClick, isCapturingMode);
+        }
+
+        // Set initial product click listeners
+        initializeProductClickListener();
+
+        document.getElementById("cartItems").addEventListener("click", (event) => {
+            if (event.target.classList.contains("removeItem")) {
+                event.stopPropagation();
+                const index = parseInt(event.target.getAttribute("data-index"));
+                logToConsole(`Removed from cart: ${shoppingCart[index].name}`);
+                shoppingCart.splice(index, 1);
+                renderCartItems();
+                updateTotalAmount();
+            }
+        });
+
+        document.getElementById("applyCouponButton").addEventListener("click", (e) => {
+            const couponCode = document.getElementById("couponInput").value.trim();
+            if (couponCode === "SAVE10") {
+                isCouponApplied = true;
+                logToConsole("Coupon : SAVE10 ");
+                updateTotalAmount();
+                document.getElementById("couponInput").value = "";
+            } else {
+                logToConsole(`Invalid coupon code: ${couponCode}`);
+            }
+
+            let node = e.target;
+            const path = [];
+            while (node && node !== document.body) {
+                if (node.id) path.push(`#${node.id}`);
+                node = node.parentElement;
+            }
+            if (isCapturingMode) path.reverse();
+            logToConsole(`[${isCapturingMode ? 'Capturing' : 'Bubbling'}] Coupon Click Path:\n${path.join(" -> ")}`);
+        });
+
+        document.getElementById("toggleModeButton").addEventListener("click", function () {
+            isCapturingMode = !isCapturingMode;
+
+            // Replace event listener to if we change to it a new mode
+            const oldProductList = document.getElementById("productList");
+            const newProductList = oldProductList.cloneNode(true);
+            oldProductList.replaceWith(newProductList);
+            newProductList.id = "productList";
+            newProductList.addEventListener("click", handleProductClick, isCapturingMode);
+
+            this.textContent = isCapturingMode ? "Bubbling Mode" : "Capturing Mode";
+            logToConsole(`Switched to ${isCapturingMode ? 'Capturing' : 'Bubbling'} mode`);
+        });
+    </script>
+</body>
+
+</html>
