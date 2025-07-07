@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            padding-top: 1%;
+            padding-bottom: 1.5%;
+            padding-left: 10%;
+            padding-right: 10%;
+            background-color: darkgreen;
+            background: linear-gradient(to bottom, rgb(4, 57, 4), white);
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        .navbar > img {
+            width: 19%;
+            height: 65px;
+            margin-left: 7%;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            margin-left: 30px;
+        }
+
+        .navbar ul li {
+            position: relative;
+            padding: 20px 10px;
+            cursor: pointer;
+        }
+
+        .navbar>ul>li>a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            display: none;
+            position: absolute;
+            top: 100%;
+            text-align: left;
+            padding-left: 30px;
+            left: 0;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            z-index: 900;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            color: #87C1DB;
+        }
+
+        .middle_part {
+            margin-top: -10px;
+            padding-top: 50px;
+            padding-left: 17%;
+            padding-right: 15%;
+            background-color: #F4F9FC;
+        }
+
+        .content {
+            text-align: center;            
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .content h2 {
+            color: #2F4D5A;
+            font-size: 35px;
+            margin-bottom: -5px;
+        }
+
+        .content p {
+            color: #535353;
+        }
+
+        .cards {
+            display: flex;
+            padding: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-top: 3%;
+            gap: 20px;
+        }
+
+        .card {
+            padding: 10px;
+            border: 1px solid #cccccc;
+            box-shadow: 6px 6px 15px rgba(218, 217, 217, 0.711);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            background: white;
+            border-radius: 10px;
+            padding-top: 27px;
+        }
+
+        .card i {
+            color: #67B0D1;
+            font-size: 30px;
+        }
+
+        .card1 {
+            flex: 1;
+            max-width: 700px;
+        }
+
+        .card2 {
+            flex: 2;
+            max-width: 200px;
+        }
+
+        .card3 {
+            flex: 3;
+            max-width: 200px;
+        }
+
+        .form {
+            display: flex;
+            width: 1100px;
+            margin-left: 6.5%;
+        }
+
+        .left_side {
+            flex: 1;
+        }
+
+        .left_side img {
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 94%;
+            height: 360px;
+            display: block;
+        }
+
+        .right_side {
+            flex: 1;
+            background-color: white;
+            padding: 0 80px 30px 80px;
+            justify-content: center;
+        }
+
+
+        .content h2 {
+            margin-bottom: 15px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            width: 30%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form button:hover {
+            background: #0056b3;
+        }
+
+        .table {
+            padding-left: 19%;
+            padding-right: 19%;
+        }
+
+        .table h2 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #2F4D5A;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #f1f1f1;
+        }
+
+        .footer {
+            background-color: #1f3a45;
+            color: white;
+            display: flex;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 5%;
+            flex-wrap: wrap;
+        }
+
+        .footer-container {
+            display: flex;
+            max-width: 1200px;
+            margin-left: 45%;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 280px;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            border-bottom: 2px solid #4caf50;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            padding: 5px 0;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #4caf50;
+        }
+
+        .footer-logo {
+            text-align: center;
+            border-top: 5px #299E5E solid;
+            margin-bottom: 50px;
+            background-color: white;
+            color: #3B5763;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 20%;
+            margin-left: 20%;
+            padding: 20px;
+            margin-top: -70px;
+            position: absolute;
+        }
+
+        .footer-logo h2 {
+            margin: 0;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .footer-social a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            background: #263F49;
+            border-radius: 50%;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 10px;
+            border-top: 1px solid #4caf50;
+            text-align: center;
+            margin-left: 25%;
+        }
+
+        .footer-bottom a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="logo1.png" alt="Logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#">About Us&nbsp;&#11206;</a>
+                    <div class="dropdown-content">
+                        <a href="#">Introduction</a>
+                        <a href="#">Objectives</a>
+                        <a href="#">Board of Directors</a>
+                    </div>
+                </li>
+
+                <li><a href="#">Success Stories</a></li>
+
+                <li class="dropdown">
+                    <a href="#">NFE&nbsp;&#11206;</a>
+                    <div class="dropdown-content">
+                        <a href="#">NFE</a>
+                        <a href="#">NFE ALP</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Schemes&nbsp;&#11206;</a>
+                    <div class="dropdown-content">
+                        <a href="#">Girls Community Schools (GCS)</a>
+                        <a href="#">Education Support Scheme (ESS)</a>
+                        <a href="#">New Schools Initiative (NSI)</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Media&nbsp;&#11206;</a>
+                    <div class="dropdown-content">
+                        <a href="#">Social Media</a>
+                        <a href="#">News & Updates</a>
+                        <a href="#">Gallery</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Downloads&nbsp;&#11206;</a>
+                    <div class="dropdown-content">
+                        <a href="#">Tender</a>
+                        <a href="#">Proactive Disclosure</a>
+                    </div>
+                </li>
+
+                <li><a href="#">POHA</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="middle_part">
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>Got a question? We would love to hear from you. Send us a message and we will respond as soon as
+                possible.</p>
+        </div>
+        <div class="cards">
+            <div class="card card1">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Our Address</h3>
+                <p>Elementary & Secondary Education Foundation.</p>
+                <p>Plot No.20, Street No.13, Sector E-8, Phase-7, Hayatabad, Peshawar, Khyber Pakhtunkhwa</p>
+            </div>
+            <div class="card card2">
+                <i class="fa-regular fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p>info@eef.org.pk</p>
+            </div>
+            <div class="card card3">
+                <i class="fa-solid fa-phone-volume"></i>
+                <h3>Call Us</h3>
+                <p>091-9219106, 9219107</p>
+            </div>
+        </div>
+        <div class="form">
+            <div class="left_side">
+                <img src="map.jpeg" alt="Map">
+            </div>
+            <div class="right_side">
+                <div class="content">
+                    <h2>Send us a message</h2>
+                    <form>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table">
+        <h2>Contact Information</h2>
+        <table>
+            <tr>
+                <th>Designation</th>
+                <th>Telephone No</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td>Managing Director Office</td>
+                <td>919219999</td>
+                <td>md@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>Deputy Managing Director Office</td>
+                <td>919219999</td>
+                <td>deputy.md@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>Director Program Office</td>
+                <td>919219125</td>
+                <td>dpoffice@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Exchange Office</td>
+                <td>9219106108</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>DPO D.I.Khan</td>
+                <td>0966-9280430</td>
+                <td>dikhan@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Tank</td>
+                <td>0966-510537</td>
+                <td>tank@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Bannu</td>
+                <td>09286622909</td>
+                <td>bannu@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Lakki Marwat</td>
+                <td>0969-511404</td>
+                <td>lakkimarwat@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Karak</td>
+                <td>0927-210786</td>
+                <td>karak@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Kohat</td>
+                <td>0922-513356</td>
+                <td>kohat@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Hangu</td>
+                <td>0925-620319</td>
+                <td>hangu@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Peshawar</td>
+                <td>0314-9890555</td>
+                <td>Peshawar@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Charsadda</td>
+                <td>0333-9137994</td>
+                <td>charsadda@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Nowshera</td>
+                <td>0305-9878359</td>
+                <td>eefnsr@gmail.com</td>
+            </tr>
+            <tr>
+                <td>DPO Mardan</td>
+                <td>0937-864214</td>
+                <td>mardan@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Swabi</td>
+                <td>0938-224016</td>
+                <td>swabi@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Malakand</td>
+                <td>0932410004</td>
+                <td>malakand@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Dir-Lower</td>
+                <td>09459250003</td>
+                <td>dirlower@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Dir-Upper</td>
+                <td>0944-880218</td>
+                <td>dirupper@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Chitral-Lower</td>
+                <td>0943-413391</td>
+                <td>chitral@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Chitral-Upper</td>
+                <td>0346-9696335</td>
+                <td>alamgirbukhari82@gmail.com</td>
+            </tr>
+            <tr>
+                <td>DPO Swat</td>
+                <td>0946 9240099</td>
+                <td>swat@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Shangla</td>
+                <td>0996 622850</td>
+                <td>shangla@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Bunair</td>
+                <td>0939555362</td>
+                <td>buner@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Abbottabad</td>
+                <td>0992 9310118</td>
+                <td>abbotabad@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Haripur</td>
+                <td>0995614646</td>
+                <td>haripur@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Mansehra</td>
+                <td>0997 381500</td>
+                <td>Mansehra@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Torghar</td>
+                <td>0997 580538</td>
+                <td>torghar@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Battagram</td>
+                <td>03462116564</td>
+                <td>battagram@eef.org.pk</td>
+            </tr>
+            <tr>
+                <td>DPO Kohistan</td>
+                <td>0344-9564219</td>
+                <td>kohistan@eef.org.pk</td>
+            </tr>
+        </table>
+    </div>
+    <footer class="footer">
+        <div class="footer-logo">
+            <h2>Elementary & Secondary Education Foundation <br> Khyber Pakhtunkhwa</h2>
+            <p>Plot No.20, Street No.13, Sector E-8, Phase-7, Hayatabad, Peshawar</p>
+            <p><strong>Phone:</strong> 091-9219106, 9219107</p>
+            <p><strong>Email:</strong> info@eef.org.pk</p>
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#">&#129170;&nbsp; Girls Community Schools</a></li>
+                    <li><a href="#">&#129170;&nbsp; Education Support Scheme</a></li>
+                    <li><a href="#">&#129170;&nbsp; New Schools Initiative</a></li>
+                    <li><a href="#">&#129170;&nbsp; Downloads</a></li>
+                    <li><a href="#">&#129170;&nbsp; Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#">&#129170;&nbsp; Apply For GCS</a></li>
+                    <li><a href="#">&#129170;&nbsp; Apply For ESS</a></li>
+                    <li><a href="#">&#129170;&nbsp; Apply For NSI</a></li>
+                    <li><a href="#">&#129170;&nbsp; Elementary & Secondary Education Department</a></li>
+                    <li><a href="#">&#129170;&nbsp; Sindh Education Foundation</a></li>
+                    <li><a href="#">&#129170;&nbsp; Punjab Education Foundation</a></li>
+                    <li><a href="#">&#129170;&nbsp; Higher Education Department</a></li>
+                    <li><a href="#">&#129170;&nbsp; Education Monitoring Authority</a></li>
+                    <li><a href="#">&#129170;&nbsp; ETEA</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© Copyright (2022) <strong>Elementary & Secondary Education Foundation, Govt. of Khyber
+                    Pakhtunkhwa.</strong> All Rights Reserved</p>
+            <p>Designed by <a href="#">eGMC</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
