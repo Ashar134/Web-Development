@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+
+        }
+
+        .header {
+            padding: 15px;
+            background: #ffffff;
+            height: 60px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+            float: left;
+        }
+
+        .search-box {
+            float: right;
+            background-color: #b2e546;
+            padding: 15px;
+            margin-top: 10px;
+            height: 30px;
+        }
+
+        .search-box input {
+            width: 150px;
+        }
+
+        button {
+            background-color: #8d26be;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .navbar {
+            background: #e5e247;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin: 0 15px;
+            padding: 10px;
+        }
+
+        .content {
+            background: #aae435;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        .options-container {
+            margin: 15px 10px;
+            
+        }
+
+        #web-development,
+        #more-options {
+            width: 45%;
+            padding: 20px;
+            min-height: 45%;
+            border: 2px solid black;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .footer {
+            margin-top: 150px;
+            background: #e89d52;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+
+        }
+
+        /* For the Larger Screen */
+        @media screen and (max-width: 1200px) {
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .search-box {
+                padding: 10px;
+            }
+
+            .search-box input {
+                width: 120px;
+            }
+        }
+
+        /* For the Medium Screen */
+        @media screen and (max-width: 992px) {
+            .header h1 {
+                font-size: 24px;
+                float: none;
+                text-align: center;
+            }
+
+            .search-box {
+
+                text-align: center;
+                margin: 0px;
+
+            }
+
+            .navbar {
+
+                margin-top: 10px;
+            }
+
+            .navbar ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            #web-development,
+            #more-options {
+                
+                width: 80%;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* For Smaller Screen */
+        @media screen and (max-width: 500px) {
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .search-box input {
+                width: 100px;
+            }
+
+            .navbar {
+
+                margin-top: 10px;
+            }
+
+            .navbar ul li {
+                
+                padding: 5px;
+            }
+
+            .content p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        <h1>Coding is Poetry</h1>
+        <div class="search-box">
+            <input type="text" placeholder="Search the box">
+            <button>Search</button>
+        </div>
+    </section>
+
+    <nav class="navbar">
+        <ul>
+            <li>HOME |</li>
+            <li>WEB DEVELOPMENT |</li>
+            <li>DESKTOP LEARNING |</li>
+            <li>REGISTRATION |</li>
+            <li>CONTACT US |</li>
+        </ul>
+    </nav>
+
+    <section class="content">
+        <h2>Want to Learn Coding?</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id corrupti nihil in ducimus earum minima ea quia
+            doloribus! Impedit eos accusamus omnis maiores quisquam consectetur, optio temporibus nostrum assumenda et
+            autem nulla eius, maxime, dignissimos magni consequatur explicabo odit quae sapiente veritatis! Blanditiis,
+            ad magnam!</p>
+    </section>
+
+    <div class="options-container">
+
+        <section class="option" id="web-development">
+            <h1>Web Development</h1>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>PHP</li>
+                <li>Bootstrap</li>
+                <li>WordPress</li>
+                <li>Laravel</li>
+                <li>Angular</li>
+                <li>jQuery</li>
+                <li>AJAX</li>
+                <li>MEAN Stack</li>
+                <li>MySQL</li>
+            </ul>
+        </section>
+
+        <section class="option" id="more-options">
+            <h1>More Options</h1>
+            <ul>
+                <li>C Programming</li>
+                <li>Object-Oriented Programming</li>
+                <li>Microsoft Visual Basic</li>
+                <li>C#</li>
+                <li>Java</li>
+                <li>Python</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>Copywrite 2025 Coding is Poetry.</p>
+    </footer>
+</body>
+
+</html>
