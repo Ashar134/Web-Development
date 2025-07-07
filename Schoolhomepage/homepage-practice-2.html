@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <title>Poha LMS</title>
+    <style>
+        body {
+            display: grid;
+
+            grid-template-areas:
+                "nav"
+                "content"
+                "cards"
+                "card-bottom"
+                "footer";
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #e5f4d9;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            grid-area: nav;
+            background-color: #52b700;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        
+        i {
+
+            margin-right: 10px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+        }
+
+        h1 {
+
+            font-size: 48px;
+            margin-bottom: 0;
+        }
+
+        .menu ul {
+            display: flex;
+            gap: 70px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .logo img {
+            width: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .menu li {
+
+            font-size: 20px;
+       
+          
+        }
+
+        .container-2 {
+            grid-area: content;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            align-items: center;
+            padding: 2em;
+        }
+
+        .container-2 img {
+            max-width: 100%;
+        }
+
+        .content p {
+            font-size: 24px;
+            font-style: normal;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .cards {
+            grid-area: cards;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 2em;
+            text-align: center;
+
+        }
+
+        .card {
+            background-color: #52b700;
+            padding: 10px;
+            border-radius: 10px;
+
+
+        }
+
+        .card img {
+            width: 40%;
+            height: 30vh;
+            background-color: white;
+
+        }
+
+        .image-container {
+
+            background-color: white;
+            
+        }
+
+        .card h3 {
+
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 28px;
+            font-weight: bold;
+            background-color: #52b700;
+            text-transform: uppercase;
+            color: white;
+            letter-spacing: 3px;
+
+        }
+
+        .card-bottom {
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 10px;
+        }
+
+        .card-bottom-image-1 {
+
+            justify-self: start;
+        }
+
+        .card-bottom-image-2 {
+
+            justify-self: end;
+        }
+
+
+
+        .footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            background-color: #3f8804;
+            color: white;
+            padding: 2em;
+            text-align: left;
+        }
+       
+
+        .footer-section h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        
+        #quick-links {
+
+        margin-left: 70px;
+        justify-content: center;
+        }
+        .footer p {
+            margin: 5px;
+            line-height: 2;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="navbar">
+        <div class="menu">
+            <div class="logo"><img src="logo.png" alt="logo"></div>
+            <ul>
+                <li><i class="fa-solid fa-house" style="color: #ffffff"></i>Home</li>
+                <li>Subjects</li>
+                <li>Saba</li>
+                <li><i class="fa-solid fa-right-from-bracket fa-xl" style="color: #ffffff"></i>Logout</li>
+            </ul>
+        </div>
+        <h1>WELCOME TO POHA LMS</h1>
+    </section>
+
+    <div class="container-2">
+        <div>
+            <img src="homepage.png" alt="homepage">
+        </div>
+        <div class="content">
+            <p>
+
+                Welcome to our Learning Categories! Get ready for an exciting educational adventure with Lessons,
+                Assessments, Results, and Chat. Explore captivating topics in the Lessons section, test your skills in
+                Assessments, track your progress in Results, and share your thoughts in Chat. Let the adventure begin as
+                you dive into interactive lessons, engage in quizzes and challenges, celebrate your achievements, and
+                contribute your valuable feedback. Get ready to learn, grow, and have fun!
+            </p>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <div class="image-container">
+                <img src="lession-1.png" alt="Lessons">
+            </div>
+            <h3>LESSONS</h3>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="card-img-2.png" Examination">
+            </div>
+            <h3>EXAMINATION</h3>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="result-3.png" alt="Homework">
+            </div>
+            <h3>HOME WORK</h3>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="feed_back-4.png" alt="Chat">
+            </div>
+            <h3>CHAT</h3>
+
+        </div>
+
+    </div>
+
+    <div class="card-bottom">
+        <div class="card-bottom-image-1">
+            <img src="sun.png" alt="sun">
+        </div>
+        <div class="card-bottom-image-2">
+            <img src="abc.png" alt="abc">
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="footer-section" id ="info">
+            <p>Elementary & Secondary Education Foundation Khyber Pakhtunkhwa</p>
+            <p> <i class="fa-sharp fa-solid fa-map-location" style="color: #ffffff"></i>Plot No. 20, Street 13, Sector E8, Phase 7, Hayatabad, Peshawar</p>
+            <p><i class="fa-solid fa-envelope" style="color: #ffffff"></i>info@eef.org.pk</p>
+            <p><i class="fas fa-phone" style="color: #ffffff"></i>091 9219106</p>
+           
+        </div>
+
+        <div class="footer-section" id = "quick-links">
+            <h3>Quick Links</h3>
+            <p>Home</p>
+            <p>About POHA</p>
+        </div>
+
+        <div class="footer-section" id = "useful-links">
+            <h3>Useful Links</h3>
+            <p>E-Lab</p>
+            <p>About POHA</p>
+        </div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>
