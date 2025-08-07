@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 5</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    crossorigin="anonymous" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #logo {
+      width: 30%;
+      max-width: 100%;
+    }
+
+    nav {
+      background-color: rgb(30, 36, 35);
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-size: 18px;
+      padding: 10px 15px;
+    }
+
+    .navbar-nav .nav-link:hover {
+      border-bottom: 2px solid white;
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      background-color: rgb(30, 36, 35);
+    }
+
+    .jumbotron {
+      background: linear-gradient(to right,
+          rgb(21, 174, 201),
+          rgb(228, 226, 226),
+          rgb(21, 174, 201));
+      text-align: center;
+      padding: 5%;
+      letter-spacing: 1px;
+      color: darkblue;
+    }
+
+    h1 {
+      color: black;
+    }
+
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    .product-card img {
+      max-height: 150px;
+      object-fit: cover;
+    }
+
+    .product-card h5 {
+      margin-top: 15px;
+    }
+
+    .modal-header,
+    .modal-footer {
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg navbar-light w-100">
+      <a class="navbar-brand" href="#">
+        <img id="logo" src="logo.png" alt="Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto d-flex align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#">Portfolio</a>
+          </li>
+          <li class="nav-item dropdown mx-3">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" data-toggle="dropdown">Services</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">HTML</a>
+              <a class="dropdown-item" href="#">CSS</a>
+              <a class="dropdown-item" href="#">JavaScript</a>
+              <a class="dropdown-item" href="#">Bootstrap</a>
+            </div>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Contact Us</a>
+          </li>
+          <li class="nav-item mx-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <button class="btn btn-info">Go</button>
+              </div>
+              <input type="search" class="form-control w-50" placeholder="Search..." />
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="fas fa-search"></i>
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="jumbotron">
+      <h1>You Are At The Right Place To Learn Bootstrap</h1>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center mb-4">
+          <div class="product-card">
+            <img src="pic1.jpg" class="img-thumbnail img-fluid" />
+            <h5>Steaming Green Tea</h5>
+            <p>Focuses on the leaves in the teapot and the steam rising</p>
+            <button class="btn btn-success">Add to Cart</button>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <div class="product-card">
+            <img src="pic2.jpg" alt="Black Tea" class="img-thumbnail img-fluid" />
+            <h5>Pouring Matcha</h5>
+            <p>Focuses on the hand pouring matcha into a bowl</p>
+            <button class="btn btn-success">Add to Cart</button>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <div class="product-card">
+            <img src="pic3.jpg" alt="Herbal Tea" class="img-thumbnail img-fluid" />
+            <h5>Herbal Tea Glow</h5>
+            <p>Focuses on the cup and saucer, with sunlight casting warm tones on the tea</p>
+            <button class="btn btn-success">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="contactModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Contact Us</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Your Name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Your Email" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
