@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+        function showMessage() 
+        {
+            alert("Script is in the head section");
+        }
+    </script>
+</head>
+<body>
+
+    <button onclick="showMessage()">Click Me</button>
+
+    <button onclick="script_inside_body()">Click Me</button>
+
+    <script>
+        function script_inside_body() {
+            alert("Script is in the body section");
+        }
+    </script>
+
+
+    <button onclick="external_script()">Click Me</button>
+        <script src="Question1_script.js"></script>
+
+</body>
+
+</html>
