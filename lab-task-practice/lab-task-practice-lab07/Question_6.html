@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+    <style>
+        
+        input, select, button 
+        {
+            margin: 5px;
+            padding: 8px;
+            font-size: 16px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Dropdown Menu</h3>
+    <div id="dropdown-menu">
+        <select id="dropdown">
+            <option>First</option>
+            <option>Second</option>
+        </select>
+        <button onclick="change_dropdown()">New Entry</button>
+    </div>
+
+    <script>
+
+        function change_dropdown() {
+            let dropdown_menu = document.getElementById("dropdown-menu");
+            dropdown_menu.innerHTML = `<input type="text" placeholder="New Entry"> <button> New Entry</button>`;
+        }
+    </script>
+
+</body>
+
+</html>

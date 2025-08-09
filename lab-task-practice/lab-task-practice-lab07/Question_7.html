@@ -1,0 +1,214 @@
+<head>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    padding: 30px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  td {
+    padding: 10px;
+    vertical-align: top;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+
+  .error {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 4px;
+  }
+
+  input[type="submit"],
+  input[type="reset"] {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  input[type="reset"] {
+    background-color: #6c757d;
+  }
+
+  input[type="submit"]:hover,
+  input[type="reset"]:hover {
+    opacity: 0.9;
+  }
+
+  input[type="checkbox"] {
+    margin-top: 5px;
+  }
+</style>
+
+</head>
+
+
+<h2>Sign Up Form</h2>
+<form action="" method="post" onSubmit="return check_form();">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td>
+        <input type="text" name="name" id="name">
+        <span class="error" id="nameError"></span>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Gender:</td>
+      <td>
+        <input type="radio" name="gender" value="male" checked> Male <br>
+        <input type="radio" name="gender" value="female"> Female
+      </td>
+    </tr>
+
+    <tr>
+      <td>Email:</td>
+      <td>
+        <input type="text" name="email" id="email">
+        <span class="error" id="emailError"></span>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Address:</td>
+      <td>
+        <textarea name="add" id="add"></textarea>
+        <span class="error" id="addressError"></span>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Login ID:</td>
+      <td>
+        <input type="text" name="login" id="login">
+        <span class="error" id="loginError"></span>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Password:</td>
+      <td>
+        <input type="password" name="pass" id="pass">
+        <span class="error" id="passError"></span>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Agreed with<br> Policy:</td>
+      <td>
+        <input type="checkbox" name="agree" id="check">
+        <span class="error" id="checkError"></span>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>
+        <input type="submit" value="Submit">&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="Reset">
+      </td>
+    </tr>
+  </table>
+</form>
+
+<script>
+function check_form() 
+{
+  let isValid = true;
+
+  document.querySelectorAll('.error').forEach(span => span.innerHTML = '');
+
+
+  let name = document.getElementById("name").value;
+  if (name == "") {
+    document.getElementById("nameError").innerHTML = "Name is required";
+    isValid = false;
+  }
+
+
+  let email = document.getElementById("email").value;
+  let pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!email.match(pattern)) {
+    document.getElementById("emailError").innerHTML = "Enter a valid email";
+    isValid = false;
+  }
+
+
+  let address = document.getElementById("add").value;
+  if (address == "") {
+    document.getElementById("addressError").innerHTML = "Address is required";
+    isValid = false;
+  }
+
+
+  let login = document.getElementById("login").value;
+  if (login == "") {
+    document.getElementById("loginError").innerHTML = "Login ID is required";
+    isValid = false;
+  }
+
+  let pass = document.getElementById("pass").value;
+  if (pass.length < 6) {
+    document.getElementById("passError").innerHTML = "Password must be at least 6 characters";
+    isValid = false;
+  }
+
+  let agree = document.getElementById("check").checked;
+  if (!agree) {
+    document.getElementById("checkError").innerHTML = "You must agree to the policy";
+    isValid = false;
+  }
+
+  return isValid;
+}
+</script>
+
+<style>
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+</style>
