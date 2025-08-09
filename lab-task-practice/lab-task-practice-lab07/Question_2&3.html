@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition Function</title>
+</head>
+
+<body>
+    <h2>Sum of Two Numbers</h2>
+    <p id="result"></p>
+
+    <script>
+
+        function addNumbers(a, b) 
+        {
+            return a + b;
+        }
+
+        document.getElementById("result").innerText = "Sum : " + addNumbers(5, 7);
+
+
+        let x = 5, y = 4;
+
+        console.log(`x = y + 1, Result = ${y + 1}`);
+
+        x += y;
+        console.log(`x += y, Result = ${x}`);
+
+        x -= y; 
+        console.log(`x -= y, Result = ${x}`);
+
+        x *= y; 
+        console.log(`x *= y, Result = ${x}`);
+
+        x /= y; 
+        console.log(`x /= y, Result = ${x}`);
+
+    </script>
+
+</body>
+
+</html>
