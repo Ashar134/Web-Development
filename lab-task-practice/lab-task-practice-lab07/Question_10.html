@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body
+         {
+            text-align: center;
+        }
+
+        h2 {
+
+            border: 1px solid black;
+            padding: 20px;
+            margin-left: 25%;
+            margin-right: 25%;
+            background-color: cadetblue;
+        }
+        button 
+        {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: bisque;
+        }
+
+        img
+        {
+            width: 300px;
+            height: auto;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Photo Album</h2>
+
+    <button onclick="show_image('images/birthday.jpg')">Birthday</button>
+    <button onclick="show_image('images/pet.jpg')">Pets</button>
+    <button onclick="show_image('images/car.jpg')">Cars</button>
+
+    <br>
+    <img id="image" src="images/birthday.jpg" alt="Birthday image">
+
+    <script>
+        function show_image(new_image)
+        {
+            document.getElementById("image").src = new_image;
+        }
+    </script>
+
+</body>
+
+</html>

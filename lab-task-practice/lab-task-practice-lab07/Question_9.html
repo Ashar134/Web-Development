@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+
+        body 
+        {
+            background-color: cadetblue;
+            margin-top: 10%;
+        }
+
+        .container 
+        {
+            margin: 10px;
+            
+            width: 40%;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            
+        }
+
+        h1 
+        {
+            text-align: center;
+            font-size: 48px;
+        }
+
+        .form 
+        {
+            margin-bottom: 15px;
+        }
+
+        label 
+        {
+            font-weight: bold;
+        }
+
+        .button 
+        {
+
+            margin-right: 10px;
+            padding: 5px 10px;
+            
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <h1>Bike Dealer Registration Form</h1>
+    <div class="container">
+        
+        <form>
+            <div class="form">
+                <label>Name:</label>
+                <input type="text" id="name">
+            </div>
+            <div class="form">
+                <label>Mailing Address:</label>
+                <input type="text" id="address">
+            </div>
+            <div class="form">
+                <label>What is your overall opinion of this website?</label><br>
+                <input type="radio" name="opinion" value="high"> High
+                <input type="radio" name="opinion" value="average"> Average
+                <input type="radio" name="opinion" value="low"> Low
+            </div>
+            <div class="form">
+                <label>Additional Comments:</label><br>
+                <textarea></textarea>
+            </div>
+            <div class="form">
+                <label>How did you learn about this website?</label>
+                <select>
+                    <option>Word of mouth</option>
+                    <option>Search engine</option>
+                    <option>Advertisement</option>
+                </select>
+            </div>
+            <button type="reset" class="button">Reset Form</button>
+            <button type="submit" class="button">Submit Form</button>
+            <button type="button" class="button" onclick="validateForm()">Validate Order</button>
+        </form>
+    </div>
+
+
+    <script>
+        function validateForm() 
+        {
+            let name = document.getElementById("name").value;
+            let address = document.getElementById("address").value;
+            let opinion = document.querySelector('input[name="opinion"]:checked');
+
+            if (!name || !address || !opinion) {
+                alert("Please fill in the required field.");
+                return false;
+            }
+            alert("Form Fill successfully!");
+            return true;
+        }
+    </script>
+</body>
+
+</html>
